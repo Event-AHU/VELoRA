@@ -51,6 +51,13 @@ peft 0.10.0
 timm 0.9.16
 
 ```
+### Dataset Download
+
+### POKER
+```
+BaiduYun (178GB): 链接：https://pan.baidu.com/s/1vQnHZUqQ1o58SajvtE-uHw?pwd=AHUE 提取码：AHUE
+
+```
 
 ### Checkpoint 
 | Model | File Size | Update Date  | Results on PokerEvent | Download Link                                            |
