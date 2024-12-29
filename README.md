@@ -65,12 +65,12 @@ BaiduYun (178GB): 链接：https://pan.baidu.com/s/1vQnHZUqQ1o58SajvtE-uHw?pwd=A
 ```
 
 
-### Training and Evaling
+### Training and Testing
 ```
 train
     CUDA_VISIBLE_DEVICES=1 python -m torch.distributed.launch --nproc_per_node=1 --master_port=20000 train.py MARS
 
-evaling
+testing
     CUDA_VISIBLE_DEVICES=1 python -m torch.distributed.launch --nproc_per_node=1 --master_port=20000 eval.py MARS
 
 ```
