@@ -47,6 +47,9 @@ numpy  1.23.0
 Pillow 10.2.0
 torchvision 0.17.1
 sentence-transformers  2.4.0
+peft 0.10.0
+timm 0.9.16
+
 ```
 
 ### Checkpoint 
