@@ -64,6 +64,17 @@ BaiduYun (178GB): 链接：https://pan.baidu.com/s/1vQnHZUqQ1o58SajvtE-uHw?pwd=A
 
 ```
 
+
+### Training and Evaling
+```
+train
+    CUDA_VISIBLE_DEVICES=1 python -m torch.distributed.launch --nproc_per_node=1 --master_port=20000 train.py MARS
+
+evaling
+    CUDA_VISIBLE_DEVICES=1 python -m torch.distributed.launch --nproc_per_node=1 --master_port=20000 eval.py MARS
+
+```
+
 ### Checkpoint 
 | Model | File Size | Update Date  | Results on PokerEvent | Download Link                                            |
 | ----- | --------- | ------------ | --------------------- | -------------------------------------------------------- |
