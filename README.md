@@ -33,7 +33,21 @@ Pattern recognition leveraging both RGB and Event cameras can significantly enha
 ```shell
 git clone https://github.com/Event-AHU/VELoRA.git
 ```
+- Environment Setting 
 
+```   
+Python 3.9
+torch  2.2.1
+easydict 1.12
+ftfy   6.1.3
+Jinja2 3.1.3
+scipy  1.12.0
+tqdm   4.66.2
+numpy  1.23.0
+Pillow 10.2.0
+torchvision 0.17.1
+sentence-transformers  2.4.0
+```
 
 ### Checkpoint 
 | Model | File Size | Update Date  | Results on PokerEvent | Download Link                                            |
