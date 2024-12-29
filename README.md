@@ -31,7 +31,7 @@ Pattern recognition leveraging both RGB and Event cameras can significantly enha
 - clone this repository
 
 ```shell
-git clone https://github.com/Event-AHU/Uncertainty_aware_MobileFormer.git
+git clone https://github.com/Event-AHU/VELoRA.git
 ```
 
 
