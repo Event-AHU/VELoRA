@@ -1,4 +1,10 @@
-# VELoRA
+# VELoRA 
+
+
+
+<p align="center">
+<img src="https://github.com/Event-AHU/VELoRA/blob/main/figures/comparsionSOTA.jpg" width="600">
+</p>
 
 **VELoRA: A Low-Rank Adaptation Approach for Efficient RGB-Event based Recognition**, 
   Lan Chen, Haoxiang Yang, Pengpeng Shao, Haoyu Song, Xiao Wang*, Zhicheng Zhao, Yaowei Wang, Yonghong Tian 
