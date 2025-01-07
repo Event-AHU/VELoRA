@@ -8,7 +8,7 @@
 
 **VELoRA: A Low-Rank Adaptation Approach for Efficient RGB-Event based Recognition**, 
   Lan Chen, Haoxiang Yang, Pengpeng Shao, Haoyu Song, Xiao Wang*, Zhicheng Zhao, Yaowei Wang, Yonghong Tian 
-  [[Paper]()] 
+  [[Paper](https://arxiv.org/abs/2412.20064)] 
 
 
 
@@ -59,12 +59,12 @@ timm 0.9.16
 ```
 ### Dataset Download
 
-- POKER
+- PokerEvent Dataset 
 ```
 BaiduYun (178GB): 链接：https://pan.baidu.com/s/1vQnHZUqQ1o58SajvtE-uHw?pwd=AHUE 提取码：AHUE
 
 ```
-- HARDVS
+- HARDVS Dataset 
 ```
 [Event Images] 链接：https://pan.baidu.com/s/1OhlhOBHY91W2SwE6oWjDwA?pwd=1234 提取码：1234
 
