@@ -95,7 +95,12 @@ testing
 ### :newspaper: Citation 
 If you find this work helps your research, please star this GitHub and cite the following papers: 
 ```bibtex
-
+@article{chen2024velora,
+  title={VELoRA: A Low-Rank Adaptation Approach for Efficient RGB-Event based Recognition},
+  author={Chen, Lan and Yang, Haoxiang and Shao, Pengpeng and Song, Haoyu and Wang, Xiao and Zhao, Zhicheng and Wang, Yaowei and Tian, Yonghong},
+  journal={arXiv preprint arXiv:2412.20064},
+  year={2024}
+}
 ```
 
 If you have any questions about these works, please feel free to leave an issue.
