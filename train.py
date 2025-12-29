@@ -89,7 +89,7 @@ def main(args):
     
 
     
-    # ViT_model = get_peft_model(ViT_model,lora_config_ViT_model)
+    ViT_model = get_peft_model(ViT_model,lora_config_ViT_model)
     # ViT_model = get_peft_model(ViT_model,lora_config_ViT_model)
     
     # for name, param in ViT_model.named_parameters():
@@ -97,8 +97,8 @@ def main(args):
     #         param.requires_grad = False
 
 
-    # Event_ViT_model =  get_peft_model(Event_ViT_model,lora_config_ViT_model)
-    # frame_ViT_model =  get_peft_model(frame_ViT_model,lora_config_ViT_model)
+    Event_ViT_model =  get_peft_model(Event_ViT_model,lora_config_ViT_model)
+    frame_ViT_model =  get_peft_model(frame_ViT_model,lora_config_ViT_model)
     
    
 
