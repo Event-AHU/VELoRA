@@ -111,8 +111,8 @@ class TransformerClassifier(nn.Module):
         
    
   
-   
-    def __init__(self, attr_num,attr_words, dim=768, pretrain_path='/media/amax/c08a625b-023d-436f-b33e-9652dc1bc7c0/DATA/lidong/VTF_PAR-main/checkpoint/jx_vit_base_p16_224-80ecf9dd.pth'):
+      
+    def __init__(self, attr_num,attr_words, dim=768, pretrain_path='/media/amax/c08a625b-023d-436f-b33e-9652dc1bc7c02/DATA/songhaoyu/VELoRA/ViT_checkpoint/jx_vit_base_p16_224-80ecf9dd.pth'):
         super().__init__()
         super().__init__()
         self.attr_num = attr_num
@@ -121,38 +121,46 @@ class TransformerClassifier(nn.Module):
         # dim修改为1024
         self.visual_embed= nn.Linear(512, dim)
         #self.vit我们也用CLIP
-        # self.vit = OursModelFineTune("/media/amax/c08a625b-023d-436f-b33e-9652dc1bc7c0/DATA/yanghaoxiang/VBT/model/pr.pt",base_model = 'vits',num_classes=114,in_chans=2,mask_ratio=0).get()
+        # self.vit = OursModelFineTune("/media/amax/c08a625b-023d-436f-b33e-9652dc1bc7c02/DATA/yanghaoxiang/VBT/model/pr.pt",base_model = 'vits',num_classes=114,in_chans=2,mask_ratio=0).get()
         
-        # 重构和融合共用参数了 
-        self.blocks = vit_base().blocks[-1:]
-        self.fuse_blocks = vit_base().blocks[-1:]
+        # 单独训练, 从空参数开始
+        self.blocks = nn.Sequential(*vit_base().blocks[-1:])
+        self.fuse_blocks = nn.Sequential(*vit_base().blocks[-1:])
+
+        # 单独训练，从ImageNet 预训练权重开始
+        # self.vit1 = vit_base()
+        # self.vit1.load_param(pretrain_path)
+        # # print(self.vit1)
+        # # breakpoint()
+        # self.blocks = nn.Sequential(*self.vit1.blocks[-1:])
+
+        # self.vit2 = vit_base()
+        # self.vit2.load_param(pretrain_path)
+        # self.fuse_blocks = nn.Sequential(*self.vit2.blocks[-1:])
+
         self.norm = vit_base().norm
-    
-      
-        # 这里最后仍然保持着我们的结构，还是加载在MLP层上
-        # self.blocks = self.vit.blocks[-1:]
-        # lora_config2 = LoraConfig(
-        #     r=8,
-        #     lora_alpha=16,
-        #     #target_modules=["qkv","fc1","fc2","proj"],
-        #     target_modules=["fc1","fc2"],  #在这里怎么确定需要加的模块？
-        #     lora_dropout=0.01,
-        #     task_type="TOKEN_CLS",
-        #     bias="none" 
-        # )
-       
-        # #最后一层LoRA装到了MLP上 
-        # self.blocks = get_peft_model(self.blocks,lora_config2)
+        #最后一层LoRA装到了MLP上 
+        lora_config2 = LoraConfig(
+            r=8,
+            lora_alpha=16,
+            #target_modules=["qkv","fc1","fc2","proj"],
+            target_modules=["fc1","fc2"],  #在这里怎么确定需要加的模块？
+            lora_dropout=0.01,
+            # task_type="TOKEN_CLS",
+            bias="none" 
+        )
+        self.blocks = get_peft_model(self.blocks,lora_config2)
+        self.fuse_blocks = get_peft_model(self.fuse_blocks,lora_config2)
+        # print(self.blocks)
+        # breakpoint()
+        
         
         # self.vit = get_peft_model(self.vit, lora_config)  
-        
-        
+    
         # for name, param in self.vit.named_parameters():
         #     if "lora_A" in name:  # 参数中包含lora_A被冻结
         #         param.requires_grad = False
              
-         
-     
         
         # 暂时还是先用LOra做最后一层的融合
         # self.blocks = self.vit.blocks[-1:]
